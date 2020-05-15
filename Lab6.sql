@@ -6,8 +6,7 @@
 --6. Sprawdź w ilu miejscach przecinają się rzeki (majrivers) z liniami kolejowymi (railroads).
 --7. Wydobądź węzły dla warstwy railroads. Ile jest takich węzłów?
 --8. Wyszukaj najlepsze lokalizacje do budowy hotelu. Hotel powinien być oddalony od lotniska nie więcej niż 100 km i nie mniej niż 50 km od linii kolejowych. Powinien leżeć także w pobliżu sieci drogowej.
---9. Uprość geometrię warstwy przedstawiającej bagna (swamps). Ustaw tolerancję na 100. Ile wierzchołków zostało zredukowanych? Czy zmieniło się pole powierzchni całkowitej ws
-zystkich poligonów (jeżeli tak, to podaj różnicę)?
+--9. Uprość geometrię warstwy przedstawiającej bagna (swamps). Ustaw tolerancję na 100. Ile wierzchołków zostało zredukowanych? Czy zmieniło się pole powierzchni całkowitej wszystkich poligonów (jeżeli tak, to podaj różnicę)?
 
 
 --Ad 1
@@ -57,7 +56,8 @@ Skorzystałem z narzędzia wektor-narzędzia geometrii-wydobądź wierzchołki (
 -- Są 662 wierzchołki(węzły) 
 
 --Ad.8
-SELECT  NAME_2 FROM regions , airports , railroads  WHERE ST_Distance(airports.GEOMETRY, regions.GEOMETRY) < 100000  AND ST_Distance(railroads.GEOMETRY, regions.GEOMETRY) >= 50000  LIMIT 1;
+SELECT  NAME_2 FROM regions , airports , railroads  WHERE ST_Distance(airports.GEOMETRY, regions.GEOMETRY) < 100000 
+AND ST_Distance(railroads.GEOMETRY, regions.GEOMETRY) >= 50000  LIMIT 1;
 
 
 --Ad.9
