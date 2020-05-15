@@ -11,7 +11,7 @@ zystkich poligonów (jeżeli tak, to podaj różnicę)?
 
 
 --Ad 1
-Uruchomiłem właściwości warstwy trees, następnie wybrałem wartość unikalną,w oparciu o pole VEGDESC i ustawiłem 3 różne kolory dla 3 różnych rodzajów lasów. 
+Uruchomiłem właściwości warstwy trees, następnie wybrałem wartość unikalną,w oparciu o pole VEGDESC i ustawiłem 3 różne kolory dla 3 różnych rodzajów lasów. (Załącznik 1.jpg)
 Pole powierzchni lasów mieszanych:
 SELECT SUM(trees.AREA_KM2) AS Pole_mieszanych FROM trees WHERE VEGDESC='Mixed Trees';
 
@@ -53,8 +53,8 @@ SELECT COUNT(*) FROM majrivers, railroads WHERE ST_Intersects(majrivers.GEOMETRY
 --- Przecinają się w 5 miejscach
 
 --Ad.7
-Skorzystałem z narzędzia wektor-narzędzia geometrii-wydobądź wierzchołki
--- Są 662 wierzchołki(węzły)
+Skorzystałem z narzędzia wektor-narzędzia geometrii-wydobądź wierzchołki (Załącznik 7.jpg)
+-- Są 662 wierzchołki(węzły) 
 
 --Ad.8
 SELECT  NAME_2 FROM regions , airports , railroads  WHERE ST_Distance(airports.GEOMETRY, regions.GEOMETRY) < 100000  AND ST_Distance(railroads.GEOMETRY, regions.GEOMETRY) >= 50000  LIMIT 1;
